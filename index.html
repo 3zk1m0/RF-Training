@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+
+    <style>
+      .column {
+        float: left;
+        width: 50%;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <img
+        src="https://digia.com/Static/img/digia-logo.svg"
+        width="115"
+        height="95"
+        style="margin: 0"
+      />
+      <div class="slides">
+        <section>
+          <h2>Robot FrameWork</h2>
+          <h4>Test Automation</h4>
+        </section>
+        <section>
+          <section><h3>What is Robot Framework?</h3></section>
+          <section>
+            <ul>
+              <li>
+                Robot Framework is generic open source automation framework.
+              </li>
+              <li class="fragment fade-in">
+                Can be used for test automation and robotic process
+                automation(RPA)
+              </li>
+              <li class="fragment fade-in">
+                Keyword based human-readable syntax.
+              </li>
+              <li class="fragment fade-in">
+                Operating system and application independent.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div class="r-stack">
+              <div class="fragment">
+            <h2>Bit of History</h2>
+            <ul>
+              <li class="fragment fade-in">
+                The basic ideas for Robot Framework were shaped in Pekka Klärck's masters thesis in 2005.
+              </li>
+              <li class="fragment fade-in">
+                The first version was developed at Nokia Networks the same year.
+              </li>
+              <li class="fragment fade-in">
+                Version 2.0 was released as open source software June 24.6.2008.
+              </li>
+              <li class="fragment fade-in">
+                Yes, this part is from <a href="https://en.wikipedia.org/wiki/Robot_Framework" target="_blank">Wikipedia</a>
+              </li>
+            </ul>
+          </div>
+          <div class="fragment">
+            <img src="images/wiki-meme.jpg" style="height: 30vw;"/>
+          </div>
+          </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Robot Framework system</h3>
+          </section>
+          <section>
+            <div class="row">
+              <div class="column" style="font-size: 2rem;">
+                <ul>
+                <li class="fragment fade-in">
+                  Robot Core
+                  <ul>
+                  <li>
+                    Prosessing of testdata
+                  </li>
+                  <li>
+                    Controlling test execution
+                  </li>
+                  <li>
+                    Result reporting
+                  </li>
+                </ul>
+                <br>
+                <li class="fragment fade-in">
+                  Test Libraries
+                  <ul>
+                  <li>
+                    Provaid the actual automation and testing capabilities
+                  </li>
+                  <li>
+                    Handle the contact to system under testing
+                  </li>
+                </ul>
+                </li>
+                </li>
+              </ul></div>
+              <div class="column"><img src="./images/robot-system.png" /></div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Keywords</h2>
+            <h4>The building blocks</h4>
+          </section>
+          <section>
+            <h3>Keywords</h3>
+            <ul>
+              <li>
+                Simply, callable function with a it's own twists
+              </li>
+              <li class="fragment fade-in">
+                There are dirrefent ways to utilize keywords.
+                <ul>
+                  <li>
+                    Keyword-driven
+                  </li>
+                  <li>
+                    Data-driven
+                  </li>
+                  <li>
+                    Gherkin
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h3>Syntax</h3>
+          <pre><code data-trim data-noescape data-line-numbers="1-2|4|5-10|11-12|13-16" class="robot">
+            *** Settings ***
+            Resource          resource.robot
+            
+            *** Test Cases ***
+            Valid Login
+                Open Browser To Login Page
+                Input User Credentials    demo   mode
+                Submit Credentials
+                Welcome Page Should Be Open
+                [Teardown]    Close Browser
+
+            *** Keywords ***
+            Input User Credentials
+                [Arguments]    ${username}    ${password}
+                Input Username    ${username}
+                Input Password    ${password}
+          </code></pre>
+        </section>
+        <section>
+          <h2>The Hands On Part</h2>
+          <a href="https://github.com/3zk1m0/RF-Training" target="_blank">Github Template</a>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info abin initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn abin plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
