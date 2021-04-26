@@ -2,10 +2,10 @@
 Library           SeleniumLibrary   run_on_failure=Nothing
 
 *** Variables ***
-${SERVER}         https://obstaclecourse.tricentis.com/Obstacles/
+${SERVER}         https://saucedemo.com/
 ${BROWSER}        Chrome
-${DRIVER}         rf-env/WebDriverManager/chrome/86.0.4240.22/chromedriver_win32/chromedriver.exe
-${DELAY}          0
+${DRIVER}         rf-env/WebDriverManager/chrome/90.0.4430.72/chromedriver_win32/chromedriver.exe
+${DELAY}          0.2
 
 *** Keywords ***
 Prepare Browser
@@ -14,7 +14,10 @@ Prepare Browser
     Set Selenium Speed    ${DELAY}
 
 Open Obstacle
-    Go To   ${SERVER}${TEST TAGS}[0]
+    Go To   ${SERVER}
     
-Verify Solved
-    Wait Until Page Contains    Good job!
+Verify Solved SUCCESSFUL LOGIN
+    Wait Until Location Is  https://www.saucedemo.com/inventory.html
+
+Verify Solved UNSUCCESSFUL LOGIN
+    Element Should Contain  css:div.error-message-container h3  Username and password do not match
