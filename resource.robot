@@ -2,9 +2,9 @@
 Library           SeleniumLibrary   run_on_failure=Nothing
 
 *** Variables ***
-${SERVER}         https://www.saucedemo.com/
+${SERVER}         https://saucedemo.com/
 ${BROWSER}        Chrome
-${DRIVER}         rf-env/WebDriverManager/chrome/89.0.4389.23/chromedriver_win32/chromedriver.exe
+${DRIVER}         rf-env/WebDriverManager/chrome/90.0.4430.72/chromedriver_win32/chromedriver.exe
 ${DELAY}          0.2
 
 *** Keywords ***
